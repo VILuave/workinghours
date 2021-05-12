@@ -5,16 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Data Tables</title>
     <div th:replace="fragments/r :: resource"/>
-    <!-- DataTables -->
-    <link rel="stylesheet" th:href="@{/webjars/AdminLTE/2.3.8/plugins/datatables/dataTables.bootstrap.css}"/>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
     <header th:replace="fragments/h :: header"/>
-    <aside  th:replace="fragments/s :: sidebar"/>
+    <aside th:replace="fragments/s :: sidebar"/>
     <section class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section   th:replace="fragments/b :: breadcrumb('Data Tables')"/>
+        <section th:replace="fragments/b :: breadcrumb"/>
 
         <!-- Main content -->
         <section class="content">
@@ -63,16 +61,5 @@
         </section>
     </section>
 </div>
-
-<!-- DataTables -->
-<script th:src="@{/webjars/AdminLTE/2.3.8/plugins/datatables/jquery.dataTables.min.js}"></script>
-<script th:src="@{/webjars/AdminLTE/2.3.8/plugins/datatables/dataTables.bootstrap.min.js}"></script>
-
-<!-- page script -->
-<script>
-    $(function () {
-        $("#example1").DataTable();
-    });
-</script>
 </body>
 </html>

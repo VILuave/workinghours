@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<aside th:fragment="sidebar" class="main-sidebar">
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img th:src="@{/img/user.jpg}" class="img-circle" alt="User Image"/>
+            </div>
+            <div class="pull-left info">
+                <p>Alexander Pierce</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+            </div>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="header">导航菜单</li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Tables</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a th:href="@{/wk/list}"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+</aside>
+</body>
+</html>
