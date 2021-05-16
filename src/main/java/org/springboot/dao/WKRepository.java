@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
  * Created by goldendba@gmail.com on 2017/3/3.
  */
 @Repository
-public interface WkRepository extends JpaRepository<WorkingHours, Long>{
+public interface WKRepository extends JpaRepository<WorkingHours, Long>{
 }

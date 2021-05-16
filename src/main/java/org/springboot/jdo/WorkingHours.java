@@ -1,7 +1,6 @@
 package org.springboot.jdo;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * 记件工时.
@@ -54,6 +53,16 @@ public class WorkingHours extends AuditableEntity {
      * 备注.
      */
     private String remark;
+
+    /**
+     * 对应产品.
+     */
+    private Product product;
+
+    /**
+     * 对应零件.
+     */
+    private Part part;
 
 
     public int getSeq() {
@@ -126,5 +135,25 @@ public class WorkingHours extends AuditableEntity {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_id")
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinColumn(name = "part_id")
+    public Part getPart() {
+        return part;
+    }
+
+    public void setPart(Part part) {
+        this.part = part;
     }
 }

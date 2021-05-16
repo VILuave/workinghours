@@ -1,6 +1,6 @@
 package org.springboot.mvc;
 
-import org.springboot.dao.WkRepository;
+import org.springboot.dao.WKRepository;
 import org.springboot.jdo.WorkingHours;
 import org.springboot.service.WkService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +15,11 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/wk")
-public class WkController {
+public class WKController {
     @Autowired
     private WkService wkService;
     @Autowired
-    private WkRepository wkRepository;
+    private WKRepository wkRepository;
 
     @RequestMapping("/list")
     public String list(Model model) {

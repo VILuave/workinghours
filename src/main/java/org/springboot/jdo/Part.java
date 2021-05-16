@@ -1,7 +1,9 @@
 package org.springboot.jdo;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.Set;
 
 /**
  * 零件JDO
@@ -11,6 +13,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "part")
 public class Part extends IdEntity {
+
+    private Set<WorkingHours> workingHoursList;
     /**
      * 零件图号.
      */
@@ -19,6 +23,15 @@ public class Part extends IdEntity {
      * 零件名称.
      */
     private String partName;
+
+    @OneToMany(mappedBy = "workingHours")
+    public Set<WorkingHours> getWorkingHoursList() {
+        return workingHoursList;
+    }
+
+    public void setWorkingHoursList(Set<WorkingHours> workingHoursList) {
+        this.workingHoursList = workingHoursList;
+    }
 
     public String getPartImgNum() {
         return partImgNum;

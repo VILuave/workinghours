@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Data Tables</title>
+    <title>查询计件工时</title>
     <div th:replace="fragments/r :: resource"/>
     <!-- DataTables -->
     <link rel="stylesheet" th:href="@{/webjars/AdminLTE/2.3.8/plugins/datatables/dataTables.bootstrap.css}"/>
@@ -11,49 +11,60 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
     <header th:replace="fragments/h :: header"/>
-    <aside  th:replace="fragments/s :: sidebar"/>
+    <aside th:replace="fragments/s :: sidebar"/>
     <section class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section   th:replace="fragments/b :: breadcrumb('Data Tables')"/>
+        <section th:replace="fragments/b :: breadcrumb('Data Tables')"/>
 
         <!-- Main content -->
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">数据列表</h3>
-                        </div>
+                       <!-- <div class="box-header">
+                            <h3 class="box-title">记件工时列表</h3>
+                        </div>-->
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Rendering engine</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
-                                    <th>CSS grade</th>
+                                    <th>日期</th>
+                                    <th>产品编号</th>
+                                    <th>产品名称</th>
+                                    <th>工序号</th>
+                                    <th>零件图号</th>
+                                    <th>零件名称</th>
+                                    <th>接收数量</th>
+                                    <th>基本工时</th>
+                                    <th>辅助工时</th>
+                                    <th>合格数</th>
+                                    <th>让步接受数</th>
+                                    <th>待用数</th>
+                                    <th>报废数</th>
+                                    <th>合计工时</th>
+                                    <th>备注</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="wk:${wks}">
-                                    <td th:text="${wk.seq}"></td>
+                                    <td th:text="${wk.createTime}"></td>
+                                    <td th:text="${wk.createTime}"></td>
+                                    <td th:text="${wk.createTime}"></td>
+                                    <td th:text="${wk.createTime}"></td>
+                                    <td th:text="${wk.createTime}"></td>
+                                    <td th:text="${wk.createTime}"></td>
+                                    <td th:text="${wk.createTime}"></td>
+                                    <td th:text="${wk.createTime}"></td>
+                                    <td th:text="${wk.createTime}"></td>
+                                    <td th:text="${wk.createTime}"></td>
+                                    <td th:text="${wk.createTime}"></td>
                                     <td th:text="${wk.acceptCount}"></td>
                                     <td th:text="${wk.compromiseCount}"></td>
                                     <td th:text="${wk.standbyCount}"></td>
                                     <td th:text="${wk.rejectCount}"></td>
                                 </tr>
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>Rendering engine</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
-                                    <th>CSS grade</th>
-                                </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.box-body -->

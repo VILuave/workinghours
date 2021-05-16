@@ -1,6 +1,6 @@
 package org.springboot.service;
 
-import org.springboot.dao.WkRepository;
+import org.springboot.dao.WKRepository;
 import org.springboot.jdo.WorkingHours;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 public class WkService {
     @Autowired
-    WkRepository wkRepository;
+    WKRepository wkRepository;
 
     public List<WorkingHours> list() {
         return wkRepository.findAll();
