@@ -15,15 +15,17 @@
         </div>
         <ul class="sidebar-menu">
             <li class="header">导航菜单</li>
-            <li class="treeview">
+            <li class="active treeview">
                 <a href="#">
-                    <i class="fa fa-table"></i> <span>记件工时管理</span>
+                    <i class="fa fa-table"></i> <span>计件管理</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a th:href="@{/wk/list}"><i class="fa fa-circle-o"></i>查询记件工时</a></li>
+                    <li><a th:href="@{/wk/list}"><i class="fa fa-circle-o"></i>工时管理</a></li>
+                    <li><a th:href="@{/wk/list}"><i class="fa fa-circle-o"></i>产品维护</a></li>
+                    <li><a th:href="@{/wk/list}"><i class="fa fa-circle-o"></i>零件维护</a></li>
                 </ul>
             </li>
         </ul>

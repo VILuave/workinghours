@@ -24,7 +24,7 @@ public class Part extends IdEntity {
      */
     private String partName;
 
-    @OneToMany(mappedBy = "workingHours")
+    @OneToMany(mappedBy = "part")
     public Set<WorkingHours> getWorkingHoursList() {
         return workingHoursList;
     }

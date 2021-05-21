@@ -137,7 +137,7 @@ public class WorkingHours extends AuditableEntity {
         this.remark = remark;
     }
 
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH},fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     public Product getProduct() {
         return product;
@@ -147,7 +147,7 @@ public class WorkingHours extends AuditableEntity {
         this.product = product;
     }
 
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH},fetch = FetchType.LAZY)
     @JoinColumn(name = "part_id")
     public Part getPart() {
         return part;

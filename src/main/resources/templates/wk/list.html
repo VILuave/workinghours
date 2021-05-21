@@ -7,6 +7,7 @@
     <div th:replace="fragments/r :: resource"/>
     <!-- DataTables -->
     <link rel="stylesheet" th:href="@{/webjars/AdminLTE/2.3.8/plugins/datatables/dataTables.bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fixedColumns.dataTables.min.css}"/>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -14,15 +15,15 @@
     <aside th:replace="fragments/s :: sidebar"/>
     <section class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section th:replace="fragments/b :: breadcrumb('Data Tables')"/>
+        <section th:replace="fragments/b :: breadcrumb('计件管理', '计件管理', '工时列表')"/>
 
         <!-- Main content -->
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
-                       <!-- <div class="box-header">
-                            <h3 class="box-title">记件工时列表</h3>
+                        <!--<div class="box-header">
+                            <h3 class="box-title">工时列表</h3>
                         </div>-->
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -78,12 +79,7 @@
 <!-- DataTables -->
 <script th:src="@{/webjars/AdminLTE/2.3.8/plugins/datatables/jquery.dataTables.min.js}"></script>
 <script th:src="@{/webjars/AdminLTE/2.3.8/plugins/datatables/dataTables.bootstrap.min.js}"></script>
-
-<!-- page script -->
-<script>
-    $(function () {
-        $("#example1").DataTable();
-    });
-</script>
+<script th:src="@{/js/dataTables.fixedColumns.min.js}"></script>
+<script th:src="@{/js/workinghours.js}"></script>
 </body>
 </html>

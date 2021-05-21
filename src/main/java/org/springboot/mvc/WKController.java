@@ -21,6 +21,20 @@ public class WKController {
     @Autowired
     private WKRepository wkRepository;
 
+    @RequestMapping("/edit")
+    public String edit() {
+        return "wk/edit";
+    }
+
+    /**
+     * 保存工时.
+     *
+     * @param model
+     */
+    public void save(Model model) {
+
+    }
+
     @RequestMapping("/list")
     public String list(Model model) {
         WorkingHours wk = new WorkingHours();
