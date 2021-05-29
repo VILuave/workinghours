@@ -1,20 +1,17 @@
 package org.springboot.jdo;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
 /**
  * 产品JDO
- *
+ * <p>
  * Created by goldendba@gmail.com on 2017/3/3.
  */
 @Entity
 @Table(name = "product")
-public class Product extends IdEntity{
+public class Product extends IdEntity {
 
     private Set<WorkingHours> workingHoursList;
     /**
@@ -26,7 +23,7 @@ public class Product extends IdEntity{
      */
     private String productName;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
     public Set<WorkingHours> getWorkingHoursList() {
         return workingHoursList;
     }

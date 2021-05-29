@@ -5,6 +5,9 @@
  */
 $(function () {
     var datatables_options = {
+        ajax: {
+            url: "/wk/list"
+        },
         "dom": "<'row'<'#toolbar.col-xs-2'l><'#params.col-xs-4'><'col-xs-6'f>r>" + "t" + "<'row'<'col-xs-6'i><'col-xs-6'p>>",
         "bAutoWidth": true,
         "bPaginate": false,
@@ -29,9 +32,42 @@ $(function () {
                 "next": "下一页"
             }
         },
+        columns: [
+            {"data": null},
+            {"data": "createTime"},
+            {"data": "productNum"},
+            {"data": "productName"},
+            {"data": "seq"},
+            {"data": "partImgNum"},
+            {"data": "partName"},
+            {"data": "acceptCount"},
+            {"data": "basicWk"},
+            {"data": "assistWk"},
+            {"data": "qualifiedCount"},
+            {"data": "compromiseCount"},
+            {"data": "standbyCount"},
+            {"data": "rejectCount"},
+            {"data": null},
+            {"data": null}
+        ],
+        columnDefs: [
+            {
+                targets: 1,
+                render: function (a, b, c, d) {
+                    var context =
+                    {
+                        func: [
+                            {"name": "修改", "fn": "edit(\'" + c.name + "\',\'" + c.position + "\',\'" + c.salary + "\',\'" + c.start_date + "\',\'" + c.office + "\',\'" + c.extn + "\')", "type": "primary"},
+                            {"name": "删除", "fn": "del(\'" + c.name + "\')", "type": "danger"}
+                        ]
+                    };
+                    return template(context);
+                }
+            }
+
+        ],
         initComplete: function () {
-            $("#toolbar").append('<button id="addBtn" type="button" class="btn btn-primary btn-sm">增加</button>&nbsp;');
-            $("#toolbar").append('<button id="delBtn" type="button" class="btn btn-primary btn-sm">删除</button>&nbsp');
+            $("#toolbar").append('<button id="addBtn" type="button" class="btn btn-primary btn-sm">增加计件</button>&nbsp;');
         }
     };
 

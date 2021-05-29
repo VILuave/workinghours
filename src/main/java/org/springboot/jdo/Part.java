@@ -1,6 +1,7 @@
 package org.springboot.jdo;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.Set;
@@ -24,7 +25,7 @@ public class Part extends IdEntity {
      */
     private String partName;
 
-    @OneToMany(mappedBy = "part")
+    @OneToMany(mappedBy = "part", fetch = FetchType.EAGER)
     public Set<WorkingHours> getWorkingHoursList() {
         return workingHoursList;
     }
