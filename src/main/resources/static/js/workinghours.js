@@ -32,8 +32,8 @@ $(function () {
                 "next": "下一页"
             }
         },
-        columns: [
-            {"data": null},
+        /*columns: [
+            {"data": "id"},
             {"data": "createTime"},
             {"data": "productNum"},
             {"data": "productName"},
@@ -47,8 +47,8 @@ $(function () {
             {"data": "compromiseCount"},
             {"data": "standbyCount"},
             {"data": "rejectCount"},
-            {"data": null},
-            {"data": null}
+            {"data": "rejectCount"},
+            {"data": "rejectCount"}
         ],
         columnDefs: [
             {
@@ -57,7 +57,11 @@ $(function () {
                     var context =
                     {
                         func: [
-                            {"name": "修改", "fn": "edit(\'" + c.name + "\',\'" + c.position + "\',\'" + c.salary + "\',\'" + c.start_date + "\',\'" + c.office + "\',\'" + c.extn + "\')", "type": "primary"},
+                            {
+                                "name": "修改",
+                                "fn": "edit(\'" + c.name + "\',\'" + c.position + "\',\'" + c.salary + "\',\'" + c.start_date + "\',\'" + c.office + "\',\'" + c.extn + "\')",
+                                "type": "primary"
+                            },
                             {"name": "删除", "fn": "del(\'" + c.name + "\')", "type": "danger"}
                         ]
                     };
@@ -65,9 +69,9 @@ $(function () {
                 }
             }
 
-        ],
+        ],*/
         initComplete: function () {
-            $("#toolbar").append('<button id="addBtn" type="button" class="btn btn-primary btn-sm">增加计件</button>&nbsp;');
+            $("#toolbar").append('<button id="addBtn" type="button" class="btn btn-primary btn-sm">增加计件工时</button>');
         }
     };
 
@@ -82,7 +86,7 @@ $(function () {
     /**
      * 新增选中以及删除事件.
      */
-    $('#example1 tbody').on('click', 'tr', function () {
+    /*$('#example1 tbody').on('click', 'tr', function () {
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
         }
@@ -98,7 +102,7 @@ $(function () {
 
     $('#delBtn').click(function () {
         table.row('.selected').remove().draw(false);
-    });
+    });*/
 
     /*$("#check-all").click(function () {
      var val = $(this).prop("checked");
