@@ -14,6 +14,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
@@ -76,7 +77,7 @@ public class WorkingHoursControllerTests {
     public void testWorkingHoursController() throws Exception {
         RequestBuilder request = get("/wk/list");
 
-        mvc.perform(request).andExpect(status().isOk())
-                .andExpect(content().string(expectedJson));
+        MvcResult result = mvc.perform(request).andExpect(status().isOk()).andReturn();
+        System.out.println(result.getResponse().getContentAsString());
     }
 }

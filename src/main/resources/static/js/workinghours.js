@@ -6,11 +6,12 @@
 $(function () {
     var datatables_options = {
         ajax: {
-            url: "/wk/list"
+            url: "/wk/list",
+            "dataSrc": ""
         },
         "dom": "<'row'<'#toolbar.col-xs-2'l><'#params.col-xs-4'><'col-xs-6'f>r>" + "t" + "<'row'<'col-xs-6'i><'col-xs-6'p>>",
         "bAutoWidth": true,
-        "bPaginate": false,
+        "bPaginate": true,
         "sPaginationType": "full_numbers",
         "iDisplayLength": 10,
         "bSort": true,
@@ -32,14 +33,14 @@ $(function () {
                 "next": "下一页"
             }
         },
-        /*columns: [
+        columns: [
             {"data": "id"},
             {"data": "createTime"},
-            {"data": "productNum"},
-            {"data": "productName"},
+            {"data": "createTime"},
+            {"data": "createTime"},
             {"data": "seq"},
-            {"data": "partImgNum"},
-            {"data": "partName"},
+            {"data": "createTime"},
+            {"data": "createTime"},
             {"data": "acceptCount"},
             {"data": "basicWk"},
             {"data": "assistWk"},
@@ -52,8 +53,8 @@ $(function () {
         ],
         columnDefs: [
             {
-                targets: 1,
-                render: function (a, b, c, d) {
+                targets: 0,
+                render: function (data, type, row) {
                     var context =
                     {
                         func: [
@@ -69,7 +70,7 @@ $(function () {
                 }
             }
 
-        ],*/
+        ],
         initComplete: function () {
             $("#toolbar").append('<button id="addBtn" type="button" class="btn btn-primary btn-sm">增加计件工时</button>');
         }
@@ -86,7 +87,7 @@ $(function () {
     /**
      * 新增选中以及删除事件.
      */
-    /*$('#example1 tbody').on('click', 'tr', function () {
+    $('#example1 tbody').on('click', 'tr', function () {
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
         }
@@ -99,19 +100,27 @@ $(function () {
     $("#addBtn").click(function () {
         window.location = '/wk/edit';
     });
+    
+    var del = function(){
+        
+    }
+    
+    var edit = function(){
+        
+    }
 
     $('#delBtn').click(function () {
         table.row('.selected').remove().draw(false);
-    });*/
+    });
 
-    /*$("#check-all").click(function () {
-     var val = $(this).prop("checked");
-     $("input[type='checkbox']", ".DTFC_Cloned").attr("checked", val);
-     $("#check-all").attr("checked", val);
-     if (val) {
-     $(this).parent().addClass("checked");//这里需要注意的是js会自动加上一个class,checked,需要加上才有选中效果
-     } else {
-     $(this).parent().removeClass("checked");
-     }
-     });*/
+    $("#check-all").click(function () {
+        var val = $(this).prop("checked");
+        $("input[type='checkbox']", ".DTFC_Cloned").attr("checked", val);
+        $("#check-all").attr("checked", val);
+        if (val) {
+            $(this).parent().addClass("checked");//这里需要注意的是js会自动加上一个class,checked,需要加上才有选中效果
+        } else {
+            $(this).parent().removeClass("checked");
+        }
+    });
 });
