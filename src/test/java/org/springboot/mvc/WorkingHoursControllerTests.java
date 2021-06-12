@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springboot.WorkinghoursApplication;
+import org.springboot.dao.PartRepository;
+import org.springboot.dao.ProductRepository;
 import org.springboot.dao.WorkingHoursRepository;
 import org.springboot.jdo.Part;
 import org.springboot.jdo.Product;
@@ -39,27 +41,40 @@ public class WorkingHoursControllerTests {
     private WebApplicationContext webApplicationContext;
     @Autowired
     private WorkingHoursRepository workingHoursRepository;
+    @Autowired
+    private ProductRepository productRepository;
+    @Autowired
+    private PartRepository partRepository;
 
     String expectedJson;
+
+    void saveProductAndPart() {
+        Product product = new Product();
+        product.setProductNum("顺田");
+        product.setProductName("40缸");
+        productRepository.save(product);
+
+        Part part = new Part();
+        part.setPartImgNum("HSG40/25");
+        part.setPartName("缸桶");
+        partRepository.save(part);
+    }
 
     @Before
     public void setUp() throws Exception {
         mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 
+        //saveProductAndPart();
         WorkingHours workingHours = new WorkingHours();
-        Product product = new Product();
-        product.setProductNum("顺田");
-        product.setProductName("40缸");
-        Part part = new Part();
-        part.setPartImgNum("HSG40/25");
-        part.setPartName("缸桶");
+        Product product = productRepository.findByProductName("40缸");
+        Part part = partRepository.findByPartName("缸桶");
 
         workingHours.setCreateTime(new Date());
         workingHours.setCreateBy("goldendba@gmail.com");
         workingHours.setRemark("测试数据");
-        //workingHours.setProduct(product);
+        workingHours.setProduct(product);
         workingHours.setSeq(1);
-        //workingHours.setPart(part);
+        workingHours.setPart(part);
         workingHours.setAcceptCount(2); //接收数量
         workingHours.setBasicWk(1.6); //基本工时
         workingHours.setAssistWk(3.5); //辅助工时

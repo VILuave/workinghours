@@ -33,8 +33,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/")
                 .and().authorizeRequests()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER)
-                .and().rememberMe().tokenValiditySeconds(1209600).tokenRepository(tokenRepository())
-        ;
+                .and().rememberMe().tokenValiditySeconds(1209600).tokenRepository(tokenRepository());
+
+        http.csrf().disable();
     }
 
     @Override

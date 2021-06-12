@@ -30,7 +30,9 @@ $(function () {
             "infoFiltered": "(从 _MAX_ 条记录过滤)",
             "paginate": {
                 "previous": "上一页",
-                "next": "下一页"
+                "next": "下一页",
+                "first": "首页",
+                "last": "末页"
             }
         },
         columns: [
@@ -51,26 +53,26 @@ $(function () {
             {"data": "rejectCount"},
             {"data": "rejectCount"}
         ],
-        columnDefs: [
-            {
-                targets: 0,
-                render: function (data, type, row) {
-                    var context =
-                    {
-                        func: [
-                            {
-                                "name": "修改",
-                                "fn": "edit(\'" + c.name + "\',\'" + c.position + "\',\'" + c.salary + "\',\'" + c.start_date + "\',\'" + c.office + "\',\'" + c.extn + "\')",
-                                "type": "primary"
-                            },
-                            {"name": "删除", "fn": "del(\'" + c.name + "\')", "type": "danger"}
-                        ]
-                    };
-                    return template(context);
-                }
-            }
+        /*columnDefs: [
+         {
+         targets: 0,
+         render: function (data, type, row) {
+         var context =
+         {
+         func: [
+         {
+         "name": "修改",
+         "fn": "edit(\'" + c.name + "\',\'" + c.position + "\',\'" + c.salary + "\',\'" + c.start_date + "\',\'" + c.office + "\',\'" + c.extn + "\')",
+         "type": "primary"
+         },
+         {"name": "删除", "fn": "del(\'" + c.name + "\')", "type": "danger"}
+         ]
+         };
+         return template(context);
+         }
+         }
 
-        ],
+         ],*/
         initComplete: function () {
             $("#toolbar").append('<button id="addBtn" type="button" class="btn btn-primary btn-sm">增加计件工时</button>');
         }
@@ -100,13 +102,13 @@ $(function () {
     $("#addBtn").click(function () {
         window.location = '/wk/edit';
     });
-    
-    var del = function(){
-        
+
+    var del = function () {
+
     }
-    
-    var edit = function(){
-        
+
+    var edit = function () {
+
     }
 
     $('#delBtn').click(function () {
