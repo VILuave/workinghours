@@ -1,5 +1,6 @@
 package org.springboot.service;
 
+import org.hibernate.jdbc.Work;
 import org.springboot.dao.WorkingHoursRepository;
 import org.springboot.jdo.WorkingHours;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +18,9 @@ public class WorkingHoursService {
 
     public List<WorkingHours> list() {
         return workingHoursRepository.findAll();
+    }
+
+    public void save(WorkingHours workingHours){
+        workingHoursRepository.save(workingHours);
     }
 }
